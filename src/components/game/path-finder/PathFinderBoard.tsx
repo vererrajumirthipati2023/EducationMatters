@@ -83,7 +83,6 @@ export function PathFinderBoard({
             w-7 h-7
             sm:w-8 sm:h-8
             text-slate-800
-            dark:text-slate-200
             fill-current
           "
           aria-label="Destination position"
@@ -120,7 +119,6 @@ export function PathFinderBoard({
           border-[3px]
           border-[#9ca3af]
           bg-white
-          dark:bg-slate-900
           shadow-sm
           select-none
         "
