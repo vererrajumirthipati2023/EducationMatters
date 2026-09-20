@@ -58,10 +58,13 @@ export const MEMORY_MAZE_VARIANTS: Record<
   },
 };
 
+import { useAuth } from "@/lib/auth/auth-context";
+
 const VARIANTS = MEMORY_MAZE_VARIANTS;
 
 export default function MemoryMazePracticeSetup() {
   const router = useRouter();
+  const { isAuthenticated } = useAuth();
   const { initializeSession } = useGameSessionStore();
   const [selectedVariant, setSelectedVariant] = useState<string | null>(null);
 
@@ -98,6 +101,11 @@ export default function MemoryMazePracticeSetup() {
     initializeSession(sessionId, config, seed, () => {
       // Game handles timeout locally
     });
+
+    if (selectedVariant === "full-memory-mock-test" && !isAuthenticated) {
+      router.push(`/signin?next=/practice/memory-maze?variant=full-memory-mock-test`);
+      return;
+    }
 
     router.push("/assessment/memory-maze");
   };

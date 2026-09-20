@@ -1,4 +1,13 @@
+import type { Metadata } from "next";
 import { Header } from "@/components/layout/Header";
+
+export const metadata: Metadata = {
+  title: "Assessment Test",
+  robots: {
+    index: false,
+    follow: false,
+  },
+};
 
 export default function AssessmentLayout({
   children,

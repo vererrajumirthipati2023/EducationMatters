@@ -8,6 +8,8 @@ import { registerBubbleMath } from "@/lib/games/bubble-math";
 import { PracticeConfig } from "@/lib/games/core/types";
 import { BUBBLE_MATH_VARIANTS } from "@/app/(main)/practice/bubble-math/page";
 
+import { useAuth } from "@/lib/auth/auth-context";
+
 const ROUTE_TO_VARIANT: Record<string, string> = {
   "practice1": "practice-1",
   "practice-1": "practice-1",
@@ -22,12 +24,25 @@ const ROUTE_TO_VARIANT: Record<string, string> = {
 
 export default function BubbleMathVariantAssessmentPage() {
   const params = useParams();
+  const router = useRouter();
+  const { isAuthenticated, isLoading } = useAuth();
+  
   const rawVariant = typeof params?.variant === "string" ? params.variant : "";
   const variantId = ROUTE_TO_VARIANT[rawVariant] || "practice-1";
   
+  const isFullMock =
+    variantId === "full-mock-test" ||
+    variantId === "full-bubble-mock-test" ||
+    variantId === "full-challenge";
+
   const { currentSession, initializeSession } = useGameSessionStore();
 
   useEffect(() => {
+    if (isFullMock && !isLoading && !isAuthenticated) {
+      router.replace(`/signin?next=/assessment/bubble-math/${rawVariant}`);
+      return;
+    }
+
     registerBubbleMath();
     // If session is missing or session variantId does not match the URL variant
     if (!currentSession || currentSession.variantId !== variantId) {
@@ -51,7 +66,15 @@ export default function BubbleMathVariantAssessmentPage() {
         // No-op: Game component handles per-question timeout
       });
     }
-  }, [currentSession, variantId, initializeSession]);
+  }, [currentSession, variantId, initializeSession, isFullMock, isLoading, isAuthenticated, router, rawVariant]);
+
+  if (isFullMock && (isLoading || !isAuthenticated)) {
+    return (
+      <div className="flex min-h-[60vh] items-center justify-center p-8 text-center text-slate-500 font-medium">
+        Verifying access to Full Mock...
+      </div>
+    );
+  }
 
   if (!currentSession || currentSession.variantId !== variantId) {
     return <div className="p-8 text-center text-muted-foreground">Loading session...</div>;

@@ -62,10 +62,13 @@ export const BUBBLE_MATH_VARIANTS: Record<
   },
 };
 
+import { useAuth } from "@/lib/auth/auth-context";
+
 const VARIANTS = BUBBLE_MATH_VARIANTS;
 
 export default function BubbleMathPracticeSetup() {
   const router = useRouter();
+  const { isAuthenticated } = useAuth();
   const { initializeSession } = useGameSessionStore();
   const [selectedVariant, setSelectedVariant] = useState<string | null>(null);
 
@@ -117,6 +120,16 @@ export default function BubbleMathPracticeSetup() {
         : selectedVariant === "practice-3"
         ? "practice3"
         : selectedVariant;
+
+    const isFullMock =
+      selectedVariant === "full-mock-test" ||
+      selectedVariant === "full-bubble-mock-test" ||
+      selectedVariant === "full-challenge";
+
+    if (isFullMock && !isAuthenticated) {
+      router.push(`/signin?next=/assessment/bubble-math/${routeVariant}`);
+      return;
+    }
 
     router.push(`/assessment/bubble-math/${routeVariant}`);
   };

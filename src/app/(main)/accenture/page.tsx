@@ -6,16 +6,13 @@ import {
   Calculator,
   Brain,
   ArrowRight,
-  BookOpen,
-  Timer,
-  CheckCircle2,
-  ArrowLeft,
   Code2,
   Network,
   Monitor,
   Database,
   UserRound,
   Clock3,
+  ArrowLeft,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardTitle, CardDescription } from "@/components/ui/card";
@@ -33,7 +30,6 @@ export default function AccentureAssessmentPage() {
           1. ACCENTURE HERO
           ===================================================================== */}
       <section className="relative overflow-hidden bg-gradient-to-b from-blue-950 via-[#0f2b5c] to-[#0a1f44] text-white py-14 sm:py-20 border-b border-blue-900">
-        {/* Decorative background */}
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#fbbf24_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none" />
 
         <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-amber-400/10 blur-3xl pointer-events-none" />
@@ -147,9 +143,9 @@ export default function AccentureAssessmentPage() {
 
             {/* Behavioural Assessment */}
             <div className="rounded-xl border border-slate-200 bg-slate-50 p-5 mb-6">
-              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                 <div className="flex items-center gap-3">
-                  <div className="h-10 w-10 rounded-lg bg-amber-100 text-[#d97706] flex items-center justify-center">
+                  <div className="h-10 w-10 rounded-lg bg-amber-100 text-[#d97706] flex items-center justify-center shrink-0">
                     <UserRound className="h-5 w-5" />
                   </div>
 
@@ -157,13 +153,14 @@ export default function AccentureAssessmentPage() {
                     <h4 className="font-bold text-[#0f2b5c]">
                       Behavioural Assessment
                     </h4>
+
                     <p className="text-xs text-slate-600 mt-0.5">
                       Analyses aspects of personality.
                     </p>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-2 text-xs font-semibold text-slate-600">
+                <div className="flex flex-wrap items-center gap-2 text-xs font-semibold text-slate-600">
                   <span className="px-2.5 py-1 rounded-md bg-white border border-slate-200">
                     54 Questions
                   </span>
@@ -171,110 +168,151 @@ export default function AccentureAssessmentPage() {
                   <span className="px-2.5 py-1 rounded-md bg-white border border-slate-200">
                     20 Minutes
                   </span>
+
+                  <Button
+                    asChild
+                    size="sm"
+                    className="bg-[#0f2b5c] hover:bg-[#1e3a8a] text-white font-semibold rounded-lg"
+                  >
+                    <Link href="/accenture/behavioral">
+                      Practice
+                      <ArrowRight className="ml-1.5 h-3.5 w-3.5 text-amber-300" />
+                    </Link>
+                  </Button>
                 </div>
               </div>
             </div>
 
             {/* Cognitive Assessment */}
-            {/* Cognitive Assessment */}
-<div className="rounded-xl border border-slate-200 bg-slate-50 p-5 mb-6">
-  {/* Cognitive Assessment Header */}
-  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-5">
-    <div className="flex items-center gap-3">
-      <div className="h-10 w-10 rounded-lg bg-blue-100 text-[#0f2b5c] flex items-center justify-center">
-        <Brain className="h-5 w-5" />
-      </div>
+            <div className="rounded-xl border border-slate-200 bg-slate-50 p-5 mb-6">
+              {/* Cognitive Assessment Header */}
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-5">
+                <div className="flex items-center gap-3">
+                  <div className="h-10 w-10 rounded-lg bg-blue-100 text-[#0f2b5c] flex items-center justify-center">
+                    <Brain className="h-5 w-5" />
+                  </div>
 
-      <div>
-        <h4 className="font-bold text-[#0f2b5c]">
-          Cognitive Assessment
-        </h4>
+                  <div>
+                    <h4 className="font-bold text-[#0f2b5c]">
+                      Cognitive Assessment
+                    </h4>
 
-        <p className="text-xs text-slate-600 mt-0.5">
-          The cognitive assessment contains three tasks.
-        </p>
-      </div>
-    </div>
+                    <p className="text-xs text-slate-600 mt-0.5">
+                      The cognitive assessment contains three tasks.
+                    </p>
+                  </div>
+                </div>
 
-    <div className="flex items-center gap-2 text-xs font-semibold text-slate-600">
-      <span className="px-2.5 py-1 rounded-md bg-white border border-slate-200">
-        3 Tasks
-      </span>
+                <div className="flex items-center gap-2 text-xs font-semibold text-slate-600">
+                  <span className="px-2.5 py-1 rounded-md bg-white border border-slate-200">
+                    3 Tasks
+                  </span>
 
-      <span className="px-2.5 py-1 rounded-md bg-white border border-slate-200">
-        25 Minutes
-      </span>
-    </div>
-  </div>
+                  <span className="px-2.5 py-1 rounded-md bg-white border border-slate-200">
+                    25 Minutes
+                  </span>
+                </div>
+              </div>
 
-  {/* Cognitive Tasks */}
-  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-    
-    {/* Path Finder */}
-    <div className="rounded-xl border border-slate-200 bg-white p-5 hover:border-amber-300 hover:shadow-sm transition-all duration-300">
-      <div className="h-10 w-10 rounded-lg bg-blue-50 text-[#0f2b5c] flex items-center justify-center mb-4">
-        <Compass className="h-5 w-5" />
-      </div>
+              {/* Cognitive Tasks */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {/* Path Finder */}
+                <div className="rounded-xl border border-slate-200 bg-white p-5 hover:border-amber-300 hover:shadow-sm transition-all duration-300 flex flex-col">
+                  <div className="h-10 w-10 rounded-lg bg-blue-50 text-[#0f2b5c] flex items-center justify-center mb-4">
+                    <Compass className="h-5 w-5" />
+                  </div>
 
-      <h5 className="font-bold text-[#0f2b5c]">
-        Path Finder
-      </h5>
+                  <h5 className="font-bold text-[#0f2b5c]">
+                    Path Finder
+                  </h5>
 
-      <p className="text-xs font-semibold text-[#d97706] uppercase tracking-wider mt-1 mb-2">
-        Image Rotation Ability
-      </p>
+                  <p className="text-xs font-semibold text-[#d97706] uppercase tracking-wider mt-1 mb-2">
+                    Image Rotation Ability
+                  </p>
 
-      <p className="text-sm text-slate-600 leading-relaxed">
-        This task is designed to measure your image rotation ability.
-        Instructions will be provided, and you will have a chance to
-        practise before beginning.
-      </p>
-    </div>
+                  <p className="text-sm text-slate-600 leading-relaxed flex-1">
+                    This task is designed to measure your image rotation
+                    ability. Instructions will be provided, and you will have
+                    a chance to practise before beginning.
+                  </p>
 
-    {/* Bubble Math */}
-    <div className="rounded-xl border border-slate-200 bg-white p-5 hover:border-amber-300 hover:shadow-sm transition-all duration-300">
-      <div className="h-10 w-10 rounded-lg bg-blue-50 text-[#0f2b5c] flex items-center justify-center mb-4">
-        <Calculator className="h-5 w-5" />
-      </div>
+                  <Button
+                    asChild
+                    size="sm"
+                    className="w-full mt-5 bg-[#0f2b5c] hover:bg-[#1e3a8a] text-white font-semibold rounded-lg"
+                  >
+                    <Link href="/practice/path-finder">
+                      Start Practice
+                      <ArrowRight className="ml-2 h-3.5 w-3.5 text-amber-300" />
+                    </Link>
+                  </Button>
+                </div>
 
-      <h5 className="font-bold text-[#0f2b5c]">
-        Bubble Math
-      </h5>
+                {/* Bubble Math */}
+                <div className="rounded-xl border border-slate-200 bg-white p-5 hover:border-amber-300 hover:shadow-sm transition-all duration-300 flex flex-col">
+                  <div className="h-10 w-10 rounded-lg bg-blue-50 text-[#0f2b5c] flex items-center justify-center mb-4">
+                    <Calculator className="h-5 w-5" />
+                  </div>
 
-      <p className="text-xs font-semibold text-[#d97706] uppercase tracking-wider mt-1 mb-2">
-        Numerical Ability
-      </p>
+                  <h5 className="font-bold text-[#0f2b5c]">
+                    Bubble Math
+                  </h5>
 
-      <p className="text-sm text-slate-600 leading-relaxed">
-        This task is designed to measure your numerical ability.
-        Instructions will be provided, and you will have a chance to
-        practise before beginning.
-      </p>
-    </div>
+                  <p className="text-xs font-semibold text-[#d97706] uppercase tracking-wider mt-1 mb-2">
+                    Numerical Ability
+                  </p>
 
-    {/* Memory Maze */}
-    <div className="rounded-xl border border-slate-200 bg-white p-5 hover:border-amber-300 hover:shadow-sm transition-all duration-300">
-      <div className="h-10 w-10 rounded-lg bg-blue-50 text-[#0f2b5c] flex items-center justify-center mb-4">
-        <Brain className="h-5 w-5" />
-      </div>
+                  <p className="text-sm text-slate-600 leading-relaxed flex-1">
+                    This task is designed to measure your numerical ability.
+                    Instructions will be provided, and you will have a chance
+                    to practise before beginning.
+                  </p>
 
-      <h5 className="font-bold text-[#0f2b5c]">
-        Memory Maze
-      </h5>
+                  <Button
+                    asChild
+                    size="sm"
+                    className="w-full mt-5 bg-[#0f2b5c] hover:bg-[#1e3a8a] text-white font-semibold rounded-lg"
+                  >
+                    <Link href="/practice/bubble-math">
+                      Start Practice
+                      <ArrowRight className="ml-2 h-3.5 w-3.5 text-amber-300" />
+                    </Link>
+                  </Button>
+                </div>
 
-      <p className="text-xs font-semibold text-[#d97706] uppercase tracking-wider mt-1 mb-2">
-        Perceptual Ability
-      </p>
+                {/* Memory Maze */}
+                <div className="rounded-xl border border-slate-200 bg-white p-5 hover:border-amber-300 hover:shadow-sm transition-all duration-300 flex flex-col">
+                  <div className="h-10 w-10 rounded-lg bg-blue-50 text-[#0f2b5c] flex items-center justify-center mb-4">
+                    <Brain className="h-5 w-5" />
+                  </div>
 
-      <p className="text-sm text-slate-600 leading-relaxed">
-        This task is designed to measure your perceptual ability.
-        Instructions will be provided, and you will have a chance to
-        practise before beginning.
-      </p>
-    </div>
+                  <h5 className="font-bold text-[#0f2b5c]">
+                    Memory Maze
+                  </h5>
 
-  </div>
-</div>
+                  <p className="text-xs font-semibold text-[#d97706] uppercase tracking-wider mt-1 mb-2">
+                    Perceptual Ability
+                  </p>
+
+                  <p className="text-sm text-slate-600 leading-relaxed flex-1">
+                    This task is designed to measure your perceptual ability.
+                    Instructions will be provided, and you will have a chance
+                    to practise before beginning.
+                  </p>
+
+                  <Button
+                    asChild
+                    size="sm"
+                    className="w-full mt-5 bg-[#0f2b5c] hover:bg-[#1e3a8a] text-white font-semibold rounded-lg"
+                  >
+                    <Link href="/practice/memory-maze">
+                      Start Practice
+                      <ArrowRight className="ml-2 h-3.5 w-3.5 text-amber-300" />
+                    </Link>
+                  </Button>
+                </div>
+              </div>
+            </div>
           </div>
         </Card>
 
@@ -285,6 +323,7 @@ export default function AccentureAssessmentPage() {
           <div className="h-1.5 w-full bg-gradient-to-r from-[#0f2b5c] to-[#fbbf24]" />
 
           <div className="p-6 sm:p-8">
+            {/* Round Header */}
             <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-7">
               <div>
                 <div className="flex items-center gap-3 mb-2">
@@ -302,7 +341,8 @@ export default function AccentureAssessmentPage() {
                 </p>
               </div>
 
-              <div className="flex items-center gap-2 text-xs font-semibold text-slate-600">
+              {/* Round Information Only */}
+              <div className="flex flex-wrap items-center gap-2 text-xs font-semibold text-slate-600">
                 <span className="px-2.5 py-1.5 rounded-md bg-slate-50 border border-slate-200">
                   45 Questions
                 </span>
@@ -315,64 +355,109 @@ export default function AccentureAssessmentPage() {
 
             {/* Technical Sections */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              {/* Section 1 */}
-              <div className="rounded-xl border border-slate-200 bg-slate-50 p-5">
-                <div className="h-10 w-10 rounded-lg bg-amber-100 text-[#d97706] flex items-center justify-center mb-4">
+
+              {/* Common Application & MS Office */}
+              <div className="rounded-xl border border-slate-200 bg-slate-50 p-5 flex flex-col min-h-[245px]">
+                <div className="h-10 w-10 rounded-lg bg-amber-100 text-[#d97706] flex items-center justify-center mb-4 shrink-0">
                   <Monitor className="h-5 w-5" />
                 </div>
 
-                <h4 className="font-bold text-[#0f2b5c] text-sm">
+                <h4 className="font-bold text-[#0f2b5c] text-sm min-h-[40px]">
                   Common Application & MS Office
                 </h4>
 
                 <p className="text-xs text-slate-500 mt-2">
                   7 Questions
                 </p>
+
+                <Button
+                  asChild
+                  size="sm"
+                  className="w-full mt-auto bg-[#0f2b5c] hover:bg-[#1e3a8a] text-white font-semibold rounded-lg"
+                >
+                  <Link href="/accenture/technical/ms-office">
+                    Start Practice
+                    <ArrowRight className="ml-2 h-3.5 w-3.5 text-amber-300" />
+                  </Link>
+                </Button>
               </div>
 
-              {/* Section 2 */}
-              <div className="rounded-xl border border-slate-200 bg-slate-50 p-5">
-                <div className="h-10 w-10 rounded-lg bg-blue-100 text-[#0f2b5c] flex items-center justify-center mb-4">
+              {/* Pseudocode */}
+              <div className="rounded-xl border border-slate-200 bg-slate-50 p-5 flex flex-col min-h-[245px]">
+                <div className="h-10 w-10 rounded-lg bg-blue-100 text-[#0f2b5c] flex items-center justify-center mb-4 shrink-0">
                   <Code2 className="h-5 w-5" />
                 </div>
 
-                <h4 className="font-bold text-[#0f2b5c] text-sm">
+                <h4 className="font-bold text-[#0f2b5c] text-sm min-h-[40px]">
                   Pseudocode
                 </h4>
 
                 <p className="text-xs text-slate-500 mt-2">
                   10 Questions
                 </p>
+
+                <Button
+                  asChild
+                  size="sm"
+                  className="w-full mt-auto bg-[#0f2b5c] hover:bg-[#1e3a8a] text-white font-semibold rounded-lg"
+                >
+                  <Link href="/accenture/technical/pseudocode">
+                    Start Practice
+                    <ArrowRight className="ml-2 h-3.5 w-3.5 text-amber-300" />
+                  </Link>
+                </Button>
               </div>
 
-              {/* Section 3 */}
-              <div className="rounded-xl border border-slate-200 bg-slate-50 p-5">
-                <div className="h-10 w-10 rounded-lg bg-amber-100 text-[#d97706] flex items-center justify-center mb-4">
+              {/* Networking */}
+              <div className="rounded-xl border border-slate-200 bg-slate-50 p-5 flex flex-col min-h-[245px]">
+                <div className="h-10 w-10 rounded-lg bg-amber-100 text-[#d97706] flex items-center justify-center mb-4 shrink-0">
                   <Network className="h-5 w-5" />
                 </div>
 
-                <h4 className="font-bold text-[#0f2b5c] text-sm">
-                  Fundamentals of Networking
+                <h4 className="font-bold text-[#0f2b5c] text-sm min-h-[40px]">
+                  Fundamentals of Networking & Cloud
                 </h4>
 
                 <p className="text-xs text-slate-500 mt-2">
                   14 Questions
                 </p>
+
+                <Button
+                  asChild
+                  size="sm"
+                  className="w-full mt-auto bg-[#0f2b5c] hover:bg-[#1e3a8a] text-white font-semibold rounded-lg"
+                >
+                  <Link href="/accenture/technical/networking">
+                    Start Practice
+                    <ArrowRight className="ml-2 h-3.5 w-3.5 text-amber-300" />
+                  </Link>
+                </Button>
               </div>
 
-              {/* Section 4 */}
-              <div className="rounded-xl border border-slate-200 bg-slate-50 p-5">
-                <div className="h-10 w-10 rounded-lg bg-blue-100 text-[#0f2b5c] flex items-center justify-center mb-4">
+              {/* Computer Science */}
+              <div className="rounded-xl border border-slate-200 bg-slate-50 p-5 flex flex-col min-h-[245px]">
+                <div className="h-10 w-10 rounded-lg bg-blue-100 text-[#0f2b5c] flex items-center justify-center mb-4 shrink-0">
                   <Database className="h-5 w-5" />
                 </div>
 
-                <h4 className="font-bold text-[#0f2b5c] text-sm">
+                <h4 className="font-bold text-[#0f2b5c] text-sm min-h-[40px]">
                   Computer Science
                 </h4>
 
                 <p className="text-xs text-slate-500 mt-2">
                   14 Questions
                 </p>
+
+                <Button
+                  asChild
+                  size="sm"
+                  className="w-full mt-auto bg-[#0f2b5c] hover:bg-[#1e3a8a] text-white font-semibold rounded-lg"
+                >
+                  <Link href="/accenture/technical/computer-science">
+                    Start Practice
+                    <ArrowRight className="ml-2 h-3.5 w-3.5 text-amber-300" />
+                  </Link>
+                </Button>
               </div>
             </div>
           </div>
@@ -385,6 +470,7 @@ export default function AccentureAssessmentPage() {
           <div className="h-1.5 w-full bg-gradient-to-r from-[#0f2b5c] to-[#fbbf24]" />
 
           <div className="p-6 sm:p-8">
+            {/* Round Header */}
             <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-7">
               <div>
                 <div className="flex items-center gap-3 mb-2">
@@ -402,7 +488,8 @@ export default function AccentureAssessmentPage() {
                 </p>
               </div>
 
-              <div className="flex items-center gap-2 text-xs font-semibold text-slate-600">
+              {/* Round Information Only */}
+              <div className="flex flex-wrap items-center gap-2 text-xs font-semibold text-slate-600">
                 <span className="px-2.5 py-1.5 rounded-md bg-slate-50 border border-slate-200">
                   3 Questions
                 </span>
@@ -413,9 +500,12 @@ export default function AccentureAssessmentPage() {
               </div>
             </div>
 
+            {/* Coding Sections */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="rounded-xl border border-slate-200 bg-slate-50 p-5">
-                <div className="h-10 w-10 rounded-lg bg-blue-100 text-[#0f2b5c] flex items-center justify-center mb-4">
+
+              {/* Backend */}
+              <div className="rounded-xl border border-slate-200 bg-slate-50 p-5 flex flex-col min-h-[245px]">
+                <div className="h-10 w-10 rounded-lg bg-blue-100 text-[#0f2b5c] flex items-center justify-center mb-4 shrink-0">
                   <Code2 className="h-5 w-5" />
                 </div>
 
@@ -426,10 +516,22 @@ export default function AccentureAssessmentPage() {
                 <p className="text-sm text-slate-600 mt-2">
                   Backend coding assessment.
                 </p>
+
+                <Button
+                  asChild
+                  size="sm"
+                  className="w-full mt-auto bg-[#0f2b5c] hover:bg-[#1e3a8a] text-white font-semibold rounded-lg"
+                >
+                  <Link href="/accenture/coding/backend">
+                    Start Practice
+                    <ArrowRight className="ml-2 h-3.5 w-3.5 text-amber-300" />
+                  </Link>
+                </Button>
               </div>
 
-              <div className="rounded-xl border border-slate-200 bg-slate-50 p-5">
-                <div className="h-10 w-10 rounded-lg bg-amber-100 text-[#d97706] flex items-center justify-center mb-4">
+              {/* SQL */}
+              <div className="rounded-xl border border-slate-200 bg-slate-50 p-5 flex flex-col min-h-[245px]">
+                <div className="h-10 w-10 rounded-lg bg-amber-100 text-[#d97706] flex items-center justify-center mb-4 shrink-0">
                   <Database className="h-5 w-5" />
                 </div>
 
@@ -440,10 +542,22 @@ export default function AccentureAssessmentPage() {
                 <p className="text-sm text-slate-600 mt-2">
                   SQL coding and database problems.
                 </p>
+
+                <Button
+                  asChild
+                  size="sm"
+                  className="w-full mt-auto bg-[#0f2b5c] hover:bg-[#1e3a8a] text-white font-semibold rounded-lg"
+                >
+                  <Link href="/accenture/coding/sql">
+                    Start Practice
+                    <ArrowRight className="ml-2 h-3.5 w-3.5 text-amber-300" />
+                  </Link>
+                </Button>
               </div>
 
-              <div className="rounded-xl border border-slate-200 bg-slate-50 p-5">
-                <div className="h-10 w-10 rounded-lg bg-blue-100 text-[#0f2b5c] flex items-center justify-center mb-4">
+              {/* Frontend */}
+              <div className="rounded-xl border border-slate-200 bg-slate-50 p-5 flex flex-col min-h-[245px]">
+                <div className="h-10 w-10 rounded-lg bg-blue-100 text-[#0f2b5c] flex items-center justify-center mb-4 shrink-0">
                   <Monitor className="h-5 w-5" />
                 </div>
 
@@ -454,162 +568,22 @@ export default function AccentureAssessmentPage() {
                 <p className="text-sm text-slate-600 mt-2">
                   Frontend coding assessment.
                 </p>
+
+                <Button
+                  asChild
+                  size="sm"
+                  className="w-full mt-auto bg-[#0f2b5c] hover:bg-[#1e3a8a] text-white font-semibold rounded-lg"
+                >
+                  <Link href="/accenture/coding/frontend">
+                    Start Practice
+                    <ArrowRight className="ml-2 h-3.5 w-3.5 text-amber-300" />
+                  </Link>
+                </Button>
               </div>
             </div>
           </div>
         </Card>
 
-        {/* ===================================================================
-            3. AVAILABLE PRACTICE GAMES
-            =================================================================== */}
-        <div className="mb-14">
-          <div className="mb-8">
-            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#d97706] mb-2">
-              Cognitive Practice
-            </div>
-
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0f2b5c] tracking-tight">
-              Games Available for Practice
-            </h2>
-
-            <p className="text-slate-600 text-sm mt-2">
-              Practise the three cognitive tasks individually before attempting
-              the assessment simulation.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-            {/* ===============================================================
-                PATH FINDER
-                =============================================================== */}
-            <Card className="flex flex-col justify-between bg-white rounded-2xl border-slate-200 shadow-sm hover:shadow-md hover:border-amber-300 transition-all duration-300 p-6 sm:p-7">
-              <div>
-                <div className="h-12 w-12 rounded-xl bg-blue-50 text-[#0f2b5c] border border-blue-100 flex items-center justify-center mb-5">
-                  <Compass className="h-6 w-6" />
-                </div>
-
-                <CardTitle className="text-lg font-bold text-[#0f2b5c] tracking-tight">
-                  PATH FINDER
-                </CardTitle>
-
-                <p className="text-xs font-semibold text-[#d97706] uppercase tracking-wider mt-0.5 mb-3">
-                  Image Rotation Ability
-                </p>
-
-                <CardDescription className="text-sm text-slate-600 leading-relaxed mb-6">
-                  Connect the path by rotating and changing directional tiles
-                  on 3×3 and 4×4 grids from start to destination.
-                </CardDescription>
-              </div>
-
-              <div>
-                <div className="pt-4 border-t border-slate-100 text-xs text-slate-500 font-medium mb-4 flex items-center justify-between">
-                  <span>5 Questions</span>
-                  <span className="text-slate-400">•</span>
-                  <span>Easy to Hard</span>
-                </div>
-
-                <Button
-                  asChild
-                  className="w-full bg-[#0f2b5c] hover:bg-[#1e3a8a] text-white font-semibold rounded-lg h-10"
-                >
-                  <Link href="/practice/path-finder">
-                    Start Practice
-                    <ArrowRight className="ml-2 h-4 w-4 text-amber-300" />
-                  </Link>
-                </Button>
-              </div>
-            </Card>
-
-            {/* ===============================================================
-                BUBBLE MATH
-                =============================================================== */}
-            <Card className="flex flex-col justify-between bg-white rounded-2xl border-slate-200 shadow-sm hover:shadow-md hover:border-amber-300 transition-all duration-300 p-6 sm:p-7">
-              <div>
-                <div className="h-12 w-12 rounded-xl bg-blue-50 text-[#0f2b5c] border border-blue-100 flex items-center justify-center mb-5">
-                  <Calculator className="h-6 w-6" />
-                </div>
-
-                <CardTitle className="text-lg font-bold text-[#0f2b5c] tracking-tight">
-                  BUBBLE MATH
-                </CardTitle>
-
-                <p className="text-xs font-semibold text-[#d97706] uppercase tracking-wider mt-0.5 mb-3">
-                  Numerical Ability
-                </p>
-
-                <CardDescription className="text-sm text-slate-600 leading-relaxed mb-6">
-                  Rapidly calculate mental math expressions and select bubbles
-                  in strictly ascending order under time pressure.
-                </CardDescription>
-              </div>
-
-              <div>
-                <div className="pt-4 border-t border-slate-100 text-xs text-slate-500 font-medium mb-4 flex items-center justify-between">
-                  <span>5 Questions</span>
-                  <span className="text-slate-400">•</span>
-                  <span>Timed Practice</span>
-                </div>
-
-                <Button
-                  asChild
-                  className="w-full bg-[#0f2b5c] hover:bg-[#1e3a8a] text-white font-semibold rounded-lg h-10"
-                >
-                  <Link href="/practice/bubble-math">
-                    Start Practice
-                    <ArrowRight className="ml-2 h-4 w-4 text-amber-300" />
-                  </Link>
-                </Button>
-              </div>
-            </Card>
-
-            {/* ===============================================================
-                MEMORY MAZE
-                =============================================================== */}
-            <Card className="flex flex-col justify-between bg-white rounded-2xl border-slate-200 shadow-sm hover:shadow-md hover:border-amber-300 transition-all duration-300 p-6 sm:p-7">
-              <div>
-                <div className="h-12 w-12 rounded-xl bg-blue-50 text-[#0f2b5c] border border-blue-100 flex items-center justify-center mb-5">
-                  <Brain className="h-6 w-6" />
-                </div>
-
-                <CardTitle className="text-lg font-bold text-[#0f2b5c] tracking-tight">
-                  MEMORY MAZE
-                </CardTitle>
-
-                <p className="text-xs font-semibold text-[#d97706] uppercase tracking-wider mt-0.5 mb-3">
-                  Perceptual Ability
-                </p>
-
-                <CardDescription className="text-sm text-slate-600 leading-relaxed mb-6">
-                  Memorize the grid obstacles and key locations before they
-                  vanish, then navigate safely to the exit.
-                </CardDescription>
-              </div>
-
-              <div>
-                <div className="pt-4 border-t border-slate-100 text-xs text-slate-500 font-medium mb-4 flex items-center justify-between">
-                  <span>5 Questions</span>
-                  <span className="text-slate-400">•</span>
-                  <span>Spatial Recall</span>
-                </div>
-
-                <Button
-                  asChild
-                  className="w-full bg-[#0f2b5c] hover:bg-[#1e3a8a] text-white font-semibold rounded-lg h-10"
-                >
-                  <Link href="/practice/memory-maze">
-                    Start Practice
-                    <ArrowRight className="ml-2 h-4 w-4 text-amber-300" />
-                  </Link>
-                </Button>
-              </div>
-            </Card>
-          </div>
-        </div>
-
-        {/* ===================================================================
-            4. FULL MOCK
-            =================================================================== */}
         
       </section>
     </div>

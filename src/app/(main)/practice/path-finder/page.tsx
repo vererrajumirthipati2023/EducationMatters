@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
@@ -12,6 +12,7 @@ import {
   CardFooter,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { useAuth } from "@/lib/auth/auth-context";
 
 export const PATH_FINDER_VARIANTS = [
   { id: "practice-1", label: "Practice Test 1" },
@@ -22,10 +23,16 @@ export const PATH_FINDER_VARIANTS = [
 
 export default function PathFinderPracticeSetup() {
   const router = useRouter();
+  const { isAuthenticated } = useAuth();
   const [selectedVariant, setSelectedVariant] = useState<string | null>(null);
 
   const handleLaunch = () => {
     if (!selectedVariant) return;
+
+    if (selectedVariant === "full-mock-test" && !isAuthenticated) {
+      router.push(`/signin?next=/assessment/path-finder/${selectedVariant}`);
+      return;
+    }
 
     router.push(`/assessment/path-finder/${selectedVariant}`);
   };
