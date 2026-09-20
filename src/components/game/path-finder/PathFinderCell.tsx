@@ -14,12 +14,12 @@ export function PathFinderCell({ cell, isTileSelected = false }: PathFinderCellP
 
   return (
     <div
-      className={`w-full h-full aspect-square border border-[#e5e7eb] dark:border-slate-800 flex items-center justify-center select-none transition-all duration-75 ${
+      className={`w-full h-full aspect-square border border-[#e5e7eb]  flex items-center justify-center select-none transition-all duration-75 ${
         cell.active
           ? isTileSelected
             ? "bg-[#757575] text-white ring-2 ring-yellow-400 z-10 shadow-sm"
             : "bg-[#757575] text-white"
-          : "bg-white dark:bg-slate-900"
+          : "bg-white"
       }`}
     >
       {cell.active && cell.arrowDirection && (

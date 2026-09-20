@@ -40,7 +40,7 @@ export function PathFinderTimer({
           cx={size / 2}
           cy={size / 2}
           r={radius}
-          className="stroke-[#e5e7eb] dark:stroke-slate-700"
+          className="stroke-[#e5e7eb]"
           strokeWidth={strokeWidth}
           fill="none"
         />
@@ -48,7 +48,7 @@ export function PathFinderTimer({
           cx={size / 2}
           cy={size / 2}
           r={radius}
-          className="stroke-[#333333] dark:stroke-slate-200 transition-all duration-300 ease-linear"
+          className="stroke-[#333333] transition-all duration-300 ease-linear"
           strokeWidth={strokeWidth}
           strokeDasharray={circumference}
           strokeDashoffset={strokeDashoffset}
@@ -56,7 +56,7 @@ export function PathFinderTimer({
           fill="none"
         />
       </svg>
-      <div className="absolute text-xs font-semibold tracking-tight text-[#333333] dark:text-slate-200">
+      <div className="absolute text-xs font-semibold tracking-tight text-[#333333]">
         {formattedTime}
       </div>
     </div>
