@@ -114,16 +114,22 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className={`${inter.className} min-h-screen flex flex-col bg-background text-foreground`}>
-        
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-6WTSD6W91J"></script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
+      <body
+        className={`${inter.className} min-h-screen flex flex-col bg-background text-foreground`}
+      >
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-6WTSD6W91J"
+          strategy="afterInteractive"
+        />
 
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){window.dataLayer.push(arguments);}
+          gtag('js', new Date());
           gtag('config', 'G-6WTSD6W91J');
-        </script>
+  `}
+        </Script>
         <AuthProvider>{children}</AuthProvider>
       </body>
     </html>
