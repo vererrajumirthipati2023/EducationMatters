@@ -5,35 +5,36 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://theducationmatters.in"),
+  metadataBase: new URL("https://theeducationmatters.in"),
   title: {
     template: "%s | Education Matters",
-    default: "Education Matters | Assessment Practice Platform",
+    default: "Education Matters | Practice Tests, Cognitive Games & Career Preparation",
   },
   description:
-    "Free interactive cognitive and aptitude assessment simulations designed to help students and job seekers build speed, accuracy, memory, and spatial reasoning.",
+    "Free interactive cognitive, technical, and aptitude assessment simulations designed to help students and job seekers build speed, accuracy, memory, and problem-solving skills.",
   keywords: [
     "aptitude test practice",
     "cognitive assessment simulator",
     "path finder practice",
     "bubble math test",
     "memory maze assessment",
+    "accenture assessment practice",
     "placement preparation",
     "gamified aptitude assessment",
     "education matters",
     "interactive mock tests",
   ],
-  authors: [{ name: "Education Matters", url: "https://theducationmatters.in" }],
+  authors: [{ name: "Education Matters", url: "https://theeducationmatters.in" }],
   creator: "Education Matters",
   publisher: "Education Matters",
   alternates: {
-    canonical: "https://theducationmatters.in",
+    canonical: "https://theeducationmatters.in",
   },
   openGraph: {
-    title: "Education Matters | Assessment Practice Platform",
+    title: "Education Matters | Practice Tests, Cognitive Games & Career Preparation",
     description:
-      "Free interactive cognitive and aptitude assessment simulations designed to help students and job seekers build speed, accuracy, memory, and spatial reasoning.",
-    url: "https://theducationmatters.in",
+      "Free interactive cognitive, technical, and aptitude assessment simulations designed to help students and job seekers build speed, accuracy, memory, and problem-solving skills.",
+    url: "https://theeducationmatters.in",
     siteName: "Education Matters",
     locale: "en_IN",
     type: "website",
@@ -48,9 +49,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Education Matters | Assessment Practice Platform",
+    title: "Education Matters | Practice Tests, Cognitive Games & Career Preparation",
     description:
-      "Free interactive cognitive and aptitude assessment simulations designed to help students and job seekers build speed, accuracy, memory, and spatial reasoning.",
+      "Free interactive cognitive, technical, and aptitude assessment simulations designed to help students and job seekers build speed, accuracy, memory, and problem-solving skills.",
     images: ["/education-matters-logo.jpg"],
   },
   robots: {
@@ -73,26 +74,26 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "Organization",
-      "@id": "https://theducationmatters.in/#organization",
+      "@id": "https://theeducationmatters.in/#organization",
       name: "Education Matters",
-      url: "https://theducationmatters.in",
+      url: "https://theeducationmatters.in",
       logo: {
         "@type": "ImageObject",
-        url: "https://theducationmatters.in/education-matters-logo.jpg",
+        url: "https://theeducationmatters.in/education-matters-logo.jpg",
       },
       sameAs: ["https://www.youtube.com/@Education_Matters"],
       description:
-        "Interactive cognitive assessment simulations designed to help students and candidates prepare for aptitude and reasoning assessments.",
+        "Interactive cognitive assessment simulations and practice modules designed to help students and candidates prepare for campus placements, aptitude tests, and technical assessments.",
     },
     {
       "@type": "WebSite",
-      "@id": "https://theducationmatters.in/#website",
-      url: "https://theducationmatters.in",
+      "@id": "https://theeducationmatters.in/#website",
+      url: "https://theeducationmatters.in",
       name: "Education Matters",
       description:
-        "Free interactive cognitive and aptitude assessment simulations for job seekers and students.",
+        "Free interactive cognitive, technical, and aptitude assessment simulations for job seekers and students.",
       publisher: {
-        "@id": "https://theducationmatters.in/#organization",
+        "@id": "https://theeducationmatters.in/#organization",
       },
       inLanguage: "en-IN",
     },

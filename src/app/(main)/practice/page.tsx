@@ -6,7 +6,9 @@ import { Card, CardDescription, CardTitle } from "@/components/ui/card";
 import { Compass, Calculator, Brain, ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Practice",
+  title: "Cognitive Assessment Practice Games",
+  description:
+    "Practise interactive cognitive mini-game simulations individually including Path Finder, Bubble Math, and Memory Maze.",
 };
 
 export default function PracticePage() {
