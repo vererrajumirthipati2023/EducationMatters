@@ -96,20 +96,33 @@ export function Footer() {
 
             <ul className="space-y-2 text-xs sm:text-sm text-slate-300">
               <li>
-                <Link
-                  href="/"
-                  className="hover:text-white transition-colors"
-                >
+                <Link href="/" className="hover:text-white transition-colors">
                   Home
                 </Link>
               </li>
-
               <li>
-                <Link
-                  href="/practice"
-                  className="hover:text-white transition-colors"
-                >
-                  Game Practice
+                <Link href="/about" className="hover:text-white transition-colors">
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="hover:text-white transition-colors">
+                  Contact Us
+                </Link>
+              </li>
+              <li>
+                <Link href="/privacy-policy" className="hover:text-white transition-colors">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link href="/terms" className="hover:text-white transition-colors">
+                  Terms & Conditions
+                </Link>
+              </li>
+              <li>
+                <Link href="/disclaimer" className="hover:text-white transition-colors">
+                  Disclaimer
                 </Link>
               </li>
             </ul>
