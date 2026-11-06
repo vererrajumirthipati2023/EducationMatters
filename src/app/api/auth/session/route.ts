@@ -1,22 +1,30 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
+import { getDatabase } from "@/lib/db/mongodb";
 import { getSessionFromCookies } from "@/lib/auth/session";
 
-export async function GET() {
-  const session = await getSessionFromCookies();
+export async function GET(req: NextRequest) {
+  try {
+    const session = await getSessionFromCookies();
+    if (!session) {
+      return NextResponse.json({ authenticated: false }, { status: 401 });
+    }
 
-  if (!session) {
+    const db = await getDatabase();
+    const user = await db.collection("users").findOne({ email: session.email });
+
+    if (!user) {
+      return NextResponse.json({ authenticated: false }, { status: 401 });
+    }
+
     return NextResponse.json({
-      authenticated: false,
-      user: null,
+      authenticated: true,
+      user: {
+        id: user._id.toString(),
+        email: user.email,
+        isAdmin: user.role === "admin", // Checks DB on refresh
+      },
     });
+  } catch (error) {
+    return NextResponse.json({ authenticated: false }, { status: 500 });
   }
-
-  return NextResponse.json({
-    authenticated: true,
-    user: {
-      id: session.sub,
-      email: session.email,
-      referralSource: session.referralSource || null,
-    },
-  });
 }

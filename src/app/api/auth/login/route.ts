@@ -43,10 +43,11 @@ export async function POST(req: NextRequest) {
     await usersCollection.updateOne({ _id: user._id }, { $set: { lastLoginAt: now } });
 
     const userId = user._id ? user._id.toString() : "";
+    const isAdmin = user.role === "admin";
     const token = await createSessionToken({
       sub: userId,
       email: user.email,
-      referralSource: user.referralSource,
+      isAdmin: isAdmin,
     });
 
     const cookieOptions = getSessionCookieOptions();
@@ -55,7 +56,7 @@ export async function POST(req: NextRequest) {
       user: {
         id: userId,
         email: user.email,
-        referralSource: user.referralSource,
+        isAdmin: isAdmin,
       },
     });
 

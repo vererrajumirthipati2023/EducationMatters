@@ -69,4 +69,5 @@ export interface UserDocument {
   createdAt: Date;
   updatedAt: Date;
   lastLoginAt: Date;
+  role?: string; 
 }
