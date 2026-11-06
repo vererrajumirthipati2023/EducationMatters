@@ -47,12 +47,15 @@ export async function PUT(req: NextRequest, { params }: { params: Promise<{ slug
   }
 }
 
-export async function DELETE(req: NextRequest, { params }: { params: Promise<{ topicSlug: string }> }) {
+// ✅ FIXED: Changed 'topicSlug' to 'slug' in the params type
+export async function DELETE(req: NextRequest, { params }: { params: Promise<{ slug: string }> }) {
   try {
-    const { topicSlug } = await params;
+    // ✅ FIXED: Destructured 'slug' instead of 'topicSlug'
+    const { slug } = await params;
     const db = await getDatabase();
 
-    const childCount = await db.collection("notes").countDocuments({ parentTopicSlug: topicSlug });
+    // ✅ FIXED: Using 'slug' here
+    const childCount = await db.collection("notes").countDocuments({ parentTopicSlug: slug });
     
     if (childCount > 0) {
       return NextResponse.json(
@@ -61,7 +64,8 @@ export async function DELETE(req: NextRequest, { params }: { params: Promise<{ t
       );
     }
 
-    const result = await db.collection("notes").deleteOne({ topicSlug });
+    // ✅ FIXED: Using 'slug' here
+    const result = await db.collection("notes").deleteOne({ topicSlug: slug });
     
     if (result.deletedCount === 0) {
       return NextResponse.json({ error: "Topic not found" }, { status: 404 });

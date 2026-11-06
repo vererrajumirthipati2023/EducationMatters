@@ -233,7 +233,7 @@ function BlogEditor() {
               <div className="bg-white rounded-xl overflow-hidden border border-slate-300">
                 <ReactQuill 
                   key={editSlug || "new"}
-                  ref={quillRef} 
+                  ref={quillRef as any} 
                   theme="snow" 
                   value={formData.content} 
                   onChange={(content) => setFormData({...formData, content})} 

@@ -69,7 +69,7 @@ export default async function NotePage({ params }: { params: Promise<{ subject: 
       </div>
       
       <div className="note-content max-w-none">
-        {contentParts.map((part, index) => (
+        {contentParts.map((part: string, index: number) => (
           <div key={index}>
             <div dangerouslySetInnerHTML={{ __html: part }} />
             {index < contentParts.length - 1 && note.quiz && <GenericQuiz questions={note.quiz} />}
