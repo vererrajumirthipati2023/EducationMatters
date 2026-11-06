@@ -1,5 +1,5 @@
 "use client";
-import { useState, useRef, useEffect, Suspense } from "react";
+import { useState, useEffect, Suspense } from "react";
 import dynamic from "next/dynamic";
 import { Loader2, CheckCircle2, Plus, Code2, Eye, Edit, ArrowLeft, Globe, Lock } from "lucide-react";
 import Link from "next/link";
@@ -21,7 +21,7 @@ function BlogEditor() {
     metaTitle: "", 
     metaDescription: "", 
     content: "",
-    status: "private" as "public" | "private", // <-- NEW
+    status: "private" as "public" | "private",
   });
   
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
@@ -29,8 +29,6 @@ function BlogEditor() {
   const [rawHtml, setRawHtml] = useState("");
   const [isEditing, setIsEditing] = useState(false);
   const [isFetchingData, setIsFetchingData] = useState(false);
-  
-  const quillRef = useRef<any>(null);
 
   useEffect(() => {
     if (editSlug) {
@@ -51,7 +49,7 @@ function BlogEditor() {
               metaTitle: blogToEdit.metaTitle || "",
               metaDescription: blogToEdit.metaDescription || "",
               content: blogToEdit.content || "",
-              status: blogToEdit.status || "private", // <-- NEW
+              status: blogToEdit.status || "private",
             });
             setRawHtml(blogToEdit.content || "");
           }
@@ -148,7 +146,7 @@ function BlogEditor() {
 
       <form onSubmit={handleSubmit} className="space-y-5">
         
-        {/* NEW: STATUS TOGGLE */}
+        {/* STATUS TOGGLE */}
         <div className="flex items-center justify-between bg-slate-50 p-4 rounded-xl border border-slate-200">
           <div>
             <h3 className="font-bold text-sm">Visibility</h3>
@@ -233,7 +231,6 @@ function BlogEditor() {
               <div className="bg-white rounded-xl overflow-hidden border border-slate-300">
                 <ReactQuill 
                   key={editSlug || "new"}
-                  ref={quillRef as any} 
                   theme="snow" 
                   value={formData.content} 
                   onChange={(content) => setFormData({...formData, content})} 
